@@ -1,7 +1,7 @@
 node {
- try  {
+ /*try  {
  notify('Job Started') 
-
+*/
      
   stage('Git-Checkout') {
    git 'https://github.com/y-jyothi/mindtree-devops-30Jan2020.git'
@@ -74,18 +74,18 @@ dir(project_terra) {
    sh label: 'terraform', script: '/bin/terraform  init'
    sh label: 'terraform', script: '/bin/terraform  apply -input=false -auto-approve'
    }
-}*/
+}
 
 notify('Job Completed')   
 } catch (err) {
   notify("Error ${err}")
   currentBuild.result = 'FAILURE'
+}*/
 }
-}
 
 
 
-def notify(status){
+/*def notify(status){
     emailext (
 	to: "jyothiy@gmail.com",
 	subject: "${status}: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'",
@@ -93,3 +93,4 @@ def notify(status){
 	<p>Check console output at <a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a></p>""",
 		)
 	}
+*/
